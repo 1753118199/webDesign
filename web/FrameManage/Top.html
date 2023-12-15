@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .notification-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<h1>二手交易平台</h1>
+<div class="notification-container" target="center"></div>
+
+<script>
+    let notificationContainer = document.querySelector('.notification-container');
+    let messages = [
+        "<a href=\"http://www.baidu.com\">点击这里访问百度</a>",
+        "第二条信息",
+        "第三条信息",
+        "第四条信息",
+        "第五条信息",
+        "第六条信息",
+        "第七条信息",
+        "第八条信息",
+        "第九条信息",
+        "第十条信息"
+    ];
+    let currentMessageIndex = 0;
+    let messageElement;
+
+    function showNextMessage() {
+        // 移除上一条消息
+        if (messageElement) {
+            notificationContainer.removeChild(messageElement);
+        }
+
+        let message = messages[currentMessageIndex];
+        messageElement = document.createElement('div');
+        messageElement.innerHTML = message;
+        notificationContainer.appendChild(messageElement);
+        currentMessageIndex = (currentMessageIndex + 1) % messages.length;
+
+        // 移除旧的消息通知
+        if (notificationContainer.children.length > 5) {
+            notificationContainer.removeChild(notificationContainer.firstChild);
+        }
+    }
+
+    let messageInterval = setInterval(showNextMessage, 3000);
+</script>
+</body>
+</html>

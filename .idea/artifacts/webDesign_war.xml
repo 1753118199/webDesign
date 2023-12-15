@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="webDesign:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/webDesign_war</output-path>
+    <root id="archive" name="webDesign_war.war">
+      <element id="artifact" artifact-name="webDesign:war exploded" />
+      <element id="dir-copy" path="$PROJECT_DIR$/out" />
+    </root>
+  </artifact>
+</component>
